@@ -41,7 +41,6 @@
 
 #include <Python.h>
 #include <structmember.h>
-#include <longintrepr.h>
 #include <stdlib.h>
 #include "miracl_interface2.h"
 #include <gmp.h>

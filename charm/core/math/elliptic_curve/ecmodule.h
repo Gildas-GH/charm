@@ -36,7 +36,6 @@
 
 #include <Python.h>
 #include <structmember.h>
-#include <longintrepr.h>
 #include <math.h>
 #include "benchmarkmodule.h"
 #include "base64.h"

@@ -129,7 +129,7 @@ PyObject *intToLongObj(integer_t x)
 	for (i = 0; i < size; i++)
 	{
 		bn_get_dig(&t, m);
-		l->ob_digit[i] = (digit) (((uint32_t) t) & PyLong_MASK);
+		l->long_value.ob_digit[i] = (digit) (((uint32_t) t) & PyLong_MASK);
 		bn_rsh(m, m, PyLong_SHIFT);
 #ifdef DEBUG
 		printf("%s: integer :=> ", __FUNCTION__);
@@ -137,13 +137,13 @@ PyObject *intToLongObj(integer_t x)
 #endif
 	}
 	i = size;
-	while ((i > 0) && (l->ob_digit[i - 1] == 0))
+	while ((i > 0) && (l->long_value.ob_digit[i - 1] == 0))
 		i--;
 	if(isNeg) {
-		Py_SIZE(l) = -i;
+		Py_SET_SIZE(l, -i);
 	}
 	else {
-		Py_SIZE(l) = i;
+		Py_SET_SIZE(l, i);
 	}
 	bn_free(m);
 	return (PyObject *) l;
@@ -167,7 +167,7 @@ int longObjToInt(integer_t m, PyLongObject * p)
 	bn_zero(m);
 	for (i = 0; i < size; i++)
 	{
-		bn_set_dig(t, p->ob_digit[i]);
+		bn_set_dig(t, p->long_value.ob_digit[i]);
 		bn_lsh(t2, t, PyLong_SHIFT * i);
 		bn_add(m, m, t2);
 	}

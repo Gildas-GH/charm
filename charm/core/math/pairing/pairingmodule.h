@@ -36,7 +36,6 @@
 
 #include <Python.h>
 #include <structmember.h>
-#include <longintrepr.h>
 #include <stdlib.h>
 #include <gmp.h>
 #include <pbc/pbc.h>

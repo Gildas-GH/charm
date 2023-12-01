@@ -38,7 +38,6 @@
 #include <stdio.h>
 #include <string.h>
 #include <structmember.h>
-#include <longintrepr.h>				/* for conversions */
 #include <math.h>
 #include <string.h>
 #include <gmp.h>
